@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+	<div class="container">
+	<table class="table">
+	<thead>
+	<tr class="table-light"><td><strong>Designation</strong></td><td><strong>Salary</strong></td></tr>
+	</thead>
+	<tbody class="table-dark">
+	<tr th:each="x: ${lst}">
+	    <td th:text="${x.getDesignation()}" /> 
+	    <td th:text="${x.getSalary()}" />
+	</tr>
+</tbody>
+</table>
+
+<p><a th:href="@{/admin/adddesignation}">Add or Update Position</a></p>
+<label for="delete">Delete a Position:</label>
+<form id="delete" th:action="@{/admin/deletedesignation}" th:method="post">
+	   	<input type="text" th:name="designation" placeholder="Name of the designation" >
+	   	<button type="submit">Delete</button>
+</form>
+</div>
+
+</body>
+</html>

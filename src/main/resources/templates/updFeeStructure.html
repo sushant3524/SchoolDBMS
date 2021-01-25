@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+
+	<div class="container">
+	<table class="table">
+	<thead>
+	<tr class="table-light"><td><strong>Class</strong></td><td><strong>Fees</strong></td></tr>
+	</thead>
+	<tbody class="table-dark">
+	<tr th:each="x: ${lst}">
+	    <td th:text="${x.getClss()}" /> 
+	    <td th:text="${x.getFees()}" />
+	</tr>
+</tbody>
+</table>
+
+<p><a th:href="@{/admin/addclass}">Add or Update Class</a></p>
+<label for="delete">Delete a Class:</label>
+<form id="delete" th:action="@{/admin/deleteclass}" th:method="post">
+	   	<input type="text" th:name="clss" placeholder="Name of the class" >
+	   	<button type="submit">Delete</button>
+</form>
+</div>
+</body>
+</html>

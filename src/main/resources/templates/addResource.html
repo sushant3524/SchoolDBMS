@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+<form class="container" th:action="@{/admin/addresources}" th:object="${clas}" method="post">
+	<label>: </label><input class="form-control" type="text" th:field="*{clss}" placeholder="Class name" >
+	<br>
+	<label>Yearly Fees:</label><input class="form-control" type="text" th:field="*{fees}" >
+	<br>
+	<button type="submit" class="btn btn-info">Add</button> <button
+					type="reset" class="btn btn-warning">Reset</button>
+	
+</form>
+</body>
+</html>

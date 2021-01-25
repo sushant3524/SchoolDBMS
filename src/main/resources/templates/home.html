@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+<section class="home">
+<!-- <h2><a th:href="@{/addStudent}">Add Student</a></h2>
+<br>
+<h2><a th:href="@{/allstudent}">All Student</a></h2>
+<br>
+<h2><a th:href="@{/feestructure}">Fee Structure</a></h2>
+<br>
+<h2><a th:href="@{/attendance}">Attendance</a></h2>
+<br>
+<h2><a th:href="@{/fees}">Pay Fees</a></h2>
+<br> -->	
+<div th:if="${attendance==1}" class="alert alert-success">
+    <strong>Success!</strong> Attendance Recorded!
+  </div>
+  <div th:if="${attendance==2}" class="alert alert-success">
+    <strong>Success!</strong> Fees Recorded!
+  </div>
+  <div th:if="${attendance==3}" class="alert alert-success">
+    <strong>Success!</strong> Salary Recorded!
+  </div>
+<h1 class="text-white d-flex justify-content-center align-items-center ">Mishra Shiksha Niketan HSS, Arnia</h1>
+<h1 class="text-white">From Principal's Desk</h1>
+<br>
+<p class="text-white">
+This school focus primarly on academics studies of Student. We try to groom students in a way so that they can become an asset for the nation.
+For physical development we have abundant playgrounds and games equipment to make physically fit and also to help students who show interest in particular sports.
+</p>
+<footer>
+<span>For More Information: </span>
+<span><a href="https://www.facebook.com/Mishra-Shiksha-Niketan-Hr-Secondary-School-Arnia-1664138643732400/?ref=page_internal" class="fa fa-facebook"></a></span>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=mishrashiksaniketan@gmail.com" class="fa fa-google"></a>
+
+<a href="https://www.youtube.com/channel/UCtQLvmBIE7CfOfXkQWrb1ew" class="fa fa-youtube"></a>
+</footer>
+</section>
+</body>
+</html>

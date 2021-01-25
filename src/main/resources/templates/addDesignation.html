@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+<form class="container" th:action="@{/admin/adddesignation}" th:object="${salry}" method="post">
+	<label>Designation Name: </label><input class="form-control" type="text" th:field="*{designation}" placeholder="Position name" >
+	<br>
+	<label>Salary Fixed:</label><input class="form-control" type="text" th:field="*{salary}" >
+	<br>
+	<button type="submit" class="btn btn-info">Add</button> <button
+					type="reset" class="btn btn-warning">Reset</button>
+	
+</form>
+
+</body>
+</html>

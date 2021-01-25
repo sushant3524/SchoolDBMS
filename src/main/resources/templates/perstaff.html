@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="basestaff::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+	<div class="container">
+	<table class="table table-dark">
+	<tbody>
+	<tr>
+	<td>Id: </td><td th:text="${st.getStaffId()}"></td>
+	</tr>
+	<tr><td>Name: </td><td th:text="${st.getName()}"></td></tr>
+	<tr><td>Designation: </td><td th:text="${st.getDesignation()}"></td></tr>
+	<tr><td>Gender: </td><td th:text="${st.getGender()}"></td></tr>
+	<tr><td>Email: </td><td th:text="${st.getEmail()}"></td></tr>
+	<tr><td>Date of Birth: </td><td th:text="${st.getDob()}"></td></tr>
+	<tr><td>Date of Joining: </td><td th:text="${st.getDateOfJoining()}"></td></tr>
+	<tr><td>Aadhaar Number: </td><td th:text="${st.getAadhaar()}"></td></tr>
+	<tr><td>Salary Due: </td><td th:text="${st.getSalarydue()}"></td></tr>
+	<tr><td>No. of Attendance: </td><td th:text="${st.getAttendance().size()}"></td></tr>
+	<tr><td>Role: </td><td th:text="${st.getRole()}"></td></tr>
+	<tr><td>Mobile Number: </td><td th:text="${st.getMobile()}"></td></tr>
+	<tr><td>Address: </td><td th:text="${st.getAddress()}"></td></tr>
+	<!-- <tr><td><a th:href="@{/admin/updatestaff(id=${st.getStaffId()})}">Update</a></td><td><a th:href="@{/admin/deletestaff(id=${st.getStaffId()})}">Permanently Delete</a></td></tr>
+	<tr><td><a th:href="@{/admin/getsalary(id=${st.getStaffId()})}">Pay Salary</a></td><td><a th:href="@{/admin/checkstaff(id=${st.getStaffId()})}">School Leaving</a></td></tr>
+	 -->
+	<!-- <tr><td>Transport: </td><td th:if="${st.isTransport()}" th:text="Yes"></td><td th:unless="${st.isTransport()}" th:text="No"></td></tr>
+	 --><tr th:if="${st.getFeedback()!=null}"><td>Feedback: </td><td th:text="${st.getFeedback()}"></td></tr>
+	
+	<!-- <label>Name: </label><span th:text="${st.getStuName()}"></span>
+	<label>Class: </label><span th:text="${st.getClss()}"></span>
+	<label>Gender: </label><span th:text="${st.getGender()}"></span>
+	
+	<label>Date of Birth: </label><span th:text="${st.getDob()}"></span>
+	<label>Date of Admission: </label><span th:text="${st.getDateOfAdmission()}"></span>
+	<label>Aadhaar Number: </label><span th:text="${st.getAadhaar()}"></span>
+	<label>Fees Due: </label><span th:text="${st.getFeedue()}"></span>
+	<label>No. of Attendance: </label><span th:text="${st.getAttendance().size()}"></span>
+	<label>Guardian: </label><span th:text="${st.getGuardian()}"></span>
+	<label>Mobile Number: </label><span th:text="${st.getMobile()}"></span>
+	<label>Address: </label><span th:text="${st.getAddress()}"></span>
+	<label>Transport: </label><div th:if="${st.isTransport()}"><span>Yes</span></div><div th:unless="${st.isTransport()}"><span>No</span></div>
+	<div th:if="${st.getFeedback()!=null}"><label>Feedback: </label><span th:text="${st.getFeedback()}"></span></div> -->
+	
+	</tbody>
+	</table>
+	</div>
+	
+	<table class="table">
+	<thead>
+	<tr class="table-light">
+      <th scope="col">Attendance History</th>
+    </tr>
+	</thead>
+	<tbody class="table-dark">
+	<tr th:each="x: ${st.getAttendance()}">
+	<td th:text="${x.getDate()}"></td> 
+	</tr>
+	</tbody>
+	</table>
+	
+	<table class="table">
+	<thead>
+	<tr class="table-light">
+      <th scope="col">Salary Transactions</th>
+      <th scope="col">Amount</th>
+    </tr>
+	</thead>
+	<tbody class="table-dark">
+	<tr th:each="x: ${st.getSalary()}">
+	<td th:text="${x.getDate()}"></td> 
+	<td th:text="${x.getAmount()}"></td> 
+	</tr>
+	</tbody>
+	</table>
+	
+</body>

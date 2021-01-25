@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+</head>
+<body class="form">
+<!-- <h1>Fill the form</h1> -->
+<form class="container" th:action="@{/admin/addStudent}" th:object="${student}" method="post" novalidate>
+	<label>Student Name: </label><input class="form-control" type="text" th:field="*{stuName}" th:classappend="${#fields.hasErrors('stuName')? 'is-invalid':''}" placeholder="Student Full Name" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('stuName')}" th:text="${e}"> </div>
+	<br>
+	<label>Class: </label><select class="form-control" id="clss" name="clss" th:field="*{clss}" size="1" required>
+  <option class="dropdown-item" value="Nursery">Nursery</option>
+  <option class="dropdown-item" value="LKG">LKG</option>
+  <option class="dropdown-item" value="UKG">UKG</option>
+  <option class="dropdown-item" value="1st">1st</option>
+  <option class="dropdown-item" value="2nd">2nd</option>
+  <option class="dropdown-item" value="3rd">3rd</option>
+  <option class="dropdown-item" value="4th">4th</option>
+  <option class="dropdown-item" value="5th">5th</option>
+  <option class="dropdown-item" value="6th">6th</option>
+  <option class="dropdown-item" value="7th">7th</option>
+  <option class="dropdown-item" value="8th">8th</option>
+  <option class="dropdown-item" value="9th">9th</option>
+  <option class="dropdown-item" value="10th">10th</option>
+  <option class="dropdown-item" value="11th">11th</option>
+  <option class="dropdown-item" value="12th">12th</option>
+</select>
+	<br>
+	<label>Gender: </label><select class="form-control" id="gender" name="gender" th:field="*{gender}" size="1" required>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+  <option value="Others">Others</option>
+</select>
+	<br>
+	<label>Guardian Name</label><input class="form-control" type="text" th:field="*{guardian}" th:classappend="${#fields.hasErrors('guardian')? 'is-invalid':''}" placeholder="Guardian Name" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('guardian')}" th:text="${e}"> </div>
+	<br>
+	<label>Mobile Number</label><input class="form-control" type="text" th:field="*{mobile}" th:classappend="${#fields.hasErrors('mobile')? 'is-invalid':''}">
+	<div class="invalid-feedback" th:each="e:${#fields.errors('mobile')}" th:text="${e}"> </div>
+	<br>
+	<label>Aadhaar Number</label><input class="form-control" type="text" th:field="*{aadhaar}" th:classappend="${#fields.hasErrors('aadhaar')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('aadhaar')}" th:text="${e}"> </div>
+	<br>
+	<label>Date of Birth</label><input class="form-control" type="text" th:field="*{dob}" th:classappend="${#fields.hasErrors('dob')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('dob')}" th:text="${e}"> </div>
+	<br>
+	<label>Address</label><input class="form-control" type="text" th:field="*{address}" th:classappend="${#fields.hasErrors('address')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('address')}" th:text="${e}"> </div>
+	<br>
+	<label>Want to avail Transport Facility</label><select class="form-control" id="transport" name="transport" th:field="*{transport}" size="1" required>
+  <option value=true>Yes</option>
+  <option value=false>No</option>
+</select>
+	<br>
+	<!-- <label>Fees Due: </label> <p th:text="${lst.getFeesById(clss)}"></p>
+	<br> -->
+	<button type="submit" class="btn btn-info">Add</button> <button
+					type="reset" class="btn btn-warning">Reset</button>
+	
+</form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mishra Shiksha Niketan</title>
+</head>
+<body class="form">
+<form class="container" th:action="@{/admin/updatestaff(id=${staff.getStaffId()})}" th:object="${staff}" method="post" novalidate>
+	<label>Name</label><input class="form-control" type="text" th:field="*{name}" th:classappend="${#fields.hasErrors('name')? 'is-invalid':''}" placeholder="Full Name" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}"> </div>
+	<br>
+	<label>Designation</label><select class="form-control" id="designation" name="designation" th:field="*{designation}" size="1" required>
+  <option value="Pre-Primary">Pre-Primary</option>
+  <option value="Primary">Primary</option>
+  <option value="Middle">Middle</option>
+  <option value="Secondary">Secondary</option>
+  <option value="Senior-Secondary">Senior-Secondary</option>
+  <option value="Administration">Administration</option>
+  
+</select>
+	<br>
+	<label>Gender</label><select class="form-control" id="gender" name="gender" th:field="*{gender}" size="1" required>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+  <option value="Others">Others</option>
+</select>
+	<br>
+	
+	<label>Email</label><input class="form-control" type="text" th:field="*{email}" th:classappend="${#fields.hasErrors('email')? 'is-invalid':''}" placeholder="Email Id" >
+	<div class="invalid-feedback" th:each="e:${#fields.errors('email')}" th:text="${e}"> </div>
+	<br>
+	<label>Password</label><input class="form-control" type="password" th:field="*{password}" th:classappend="${#fields.hasErrors('password')? 'is-invalid':''}" placeholder="Password" >
+	<div class="invalid-feedback" th:each="e:${#fields.errors('password')}" th:text="${e}"> </div>
+	<br>
+	<label>Role</label><select class="form-control" id="role" name="role" th:field="*{role}" size="1" required>
+  <option value="ROLE_ADMIN">Admin</option>
+  <option value="ROLE_STAFF">Staff</option>
+</select>
+	<br>
+	<label>Mobile Number</label><input class="form-control" type="text" th:field="*{mobile}" th:classappend="${#fields.hasErrors('mobile')? 'is-invalid':''}">
+	<div class="invalid-feedback" th:each="e:${#fields.errors('mobile')}" th:text="${e}"> </div>
+	<br>
+	<label>Aadhaar Number</label><input class="form-control" type="text" th:field="*{aadhaar}" th:classappend="${#fields.hasErrors('aadhaar')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('aadhaar')}" th:text="${e}"> </div>
+	<br>
+	<label>Date of Birth</label><input class="form-control" type="text" th:field="*{dob}" th:classappend="${#fields.hasErrors('dob')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('dob')}" th:text="${e}"> </div>
+	<br>
+	<label>Address</label><input class="form-control" type="text" th:field="*{address}" th:classappend="${#fields.hasErrors('address')? 'is-invalid':''}" required>
+	<div class="invalid-feedback" th:each="e:${#fields.errors('address')}" th:text="${e}"> </div>
+	<br>
+	<button type="submit" class="btn btn-info">Register</button> <button
+					type="reset" class="btn btn-warning">Reset</button>
+	
+</form>
+</body>
+</html>

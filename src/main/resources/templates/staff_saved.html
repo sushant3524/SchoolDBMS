@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mishra Shiksha Niketan</title>
+</head>
+<body>
+<h1><a th:href="@{/}">Home</a></h1>
+<br>
+<h2>Registered Successfully</h2>
+<br>
+<h2>Your Id is </h2><h2 th:text="${staff.getStaffId()}">Test</h2>
+<br>
+
+<h2><a th:href="@{/salary}">Save Given Salary</a></h2>
+<br>
+<h2><a th:href="@{/register}">Add Another Staff</a></h2>
+</body>
+</html>

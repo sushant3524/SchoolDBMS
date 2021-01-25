@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+<div th:if="${nf==1}" class="alert alert-info">
+    <strong>Not Found!</strong>
+  </div>
+<form th:action="@{/admin/indstaff}">
+      <input type="number" placeholder="Search by id" th:name="id">
+      <button class="btn btn-outline-info" type="submit">Find</button>
+    </form>
+<table class="table">
+<thead>
+    <tr class="table-light">
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Last Attendance</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <!-- <th scope="col">Detail</th> -->
+    </tr>
+  </thead>
+  <tbody class="table-dark">
+	<tr th:each="x: ${lst}">
+	
+	    <td th:text="${x.getStaffId()}"></td> 
+	    <td th:text="${x.getName()}"></td> 
+	    <td th:text="${x.getDesignation()}"></td> 
+	    <td th:if="${x.getAttendance().size() > 0}" th:text="${x.getAttendance().get(x.getAttendance().size()-1).getDate()}"></td>
+		<td th:if="${x.getAttendance().size() == 0}">Nill</td>
+		<td><a th:href="@{/admin/indstaff(id=${x.getStaffId()})}">Details</a></td>
+		<td><a th:href="@{/admin/deletestaff(id=${x.getStaffId()})}" onclick="return confirm('Are you sure you want to delete this profile?');" th:method="post">Delete</a></td>
+	</tr>
+	</tbody>
+</table>
+</body>
+</html>

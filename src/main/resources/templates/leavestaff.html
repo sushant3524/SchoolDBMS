@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+</head>
+<body>
+<form class="container" th:action="@{/admin/leavestaff(id=${staff.getStuId()})}" th:object="${staff}" method="post">
+<div class="form-group shadow-textarea">
+  <label for="exampleFormControlTextarea6">Write a Feedback: </label>
+  <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="5" th:field="*{feedback}" placeholder="Write here..."></textarea>
+<button type="submit" class="btn btn-info">Add</button> <button
+					type="reset" class="btn btn-warning">Reset</button>
+</div>
+</form>
+</body>
+</html>

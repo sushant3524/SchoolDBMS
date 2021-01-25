@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="utf-8">
+<title>Mishra Shiksha Niketan HSS Arnia</title>
+</head>
+<body>
+<form class="container" th:action="@{/admin/attendanceTakenstu}" method="post">
+<table class="table">
+<thead>
+    <tr class="table-light">
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">No. of Attendance</th>
+      <th scope="col">Last Attendance</th>
+      <th scope="col">Present</th>
+      <!-- <th scope="col">Detail</th> -->
+    </tr>
+  </thead>
+  <tbody class="table-dark">
+	<tr th:each="x: ${lst}">
+	
+	    <td th:text="${x.getStuId()}"></td> 
+	    <td th:text="${x.getStuName()}"></td> 
+	    <td th:text="${x.getAttendance().size()}"></td> 
+	    <td th:if="${x.getAttendance().size() > 0}" th:text="${x.getAttendance().get(x.getAttendance().size()-1).getDate()}"></td>
+	    <td th:if="${x.getAttendance().size() == 0}">Nill</td>
+		<!-- <td><a th:href="@{/admin/indstudent(id=${x.getStuId()})}">Details</a></td>
+		<td><a th:href="@{/admin/deletestudent(id=${x.getStuId()})}">Delete</a></td> -->
+		<td><input type="checkbox" th:name="idChecked" th:value="${x.getStuId()}"></td>
+	</tr>
+	</tbody>
+</table>
+<!-- 
+<form th:action="@{/staff/attendanceTaken}" method="post">
+	<tr th:each="x: ${lst}">
+	    <td th:text="${x.getStuId()}"></td> 
+	    <td th:text="${x.getStuName()}"></td>
+	    <p>No. of Attendance: <td th:text="${x.getAttendance().size()}"></td></p> 
+		
+	<td>
+	<span th:if="${x.getAttendance().size() > 0}">Last Attendance: </span>
+    <span th:if="${x.getAttendance().size() > 0}"><td th:text="${x.getAttendance().get(x.getAttendance().size()-1).getDate()}"/></span>
+    <td>
+           <label>Present: </label> <input type="checkbox" th:name="idChecked" th:value="${x.getStuId()}">
+        </td>
+    <p>------------------------------</p> 
+	</tr> -->
+	<button type="submit">Submit</button>
+</form>
+</body>
+</html>

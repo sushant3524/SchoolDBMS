@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mishra Shiksha Niketan</title>
+</head>
+<body>
+<br>
+<h2>Data Saved!</h2>
+<br>
+<h2>Name: </h2> <h2 th:text="${stu.getStuName()}">Test</h2>
+<br>
+<h2>Class: </h2> <h2 th:text="${stu.getClss()}">Test</h2>
+<br>
+<h2>Remaining Fees: </h2> <h2 th:text="${remain}">Test</h2>
+<br>
+
+</body>
+</html>
